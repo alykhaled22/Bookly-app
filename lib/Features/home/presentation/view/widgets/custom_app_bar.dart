@@ -1,27 +1,20 @@
-
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.leading, required this.actions});
+
+  final Widget leading;
+  final Widget actions;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40,left: 24,right: 18,bottom: 25),
+      padding: const EdgeInsets.only(top: 40, left: 24, right: 24, bottom: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            AssetsData.logo,
-            height: 18,
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.search,
-                size: 24,
-              ))
+          leading,
+          actions,          
         ],
       ),
     );
