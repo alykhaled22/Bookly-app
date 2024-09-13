@@ -18,12 +18,13 @@ class BooksListView extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * .28,
               child: ListView.builder(
+                  cacheExtent: 5,
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: state.books.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: CustomBookImage(
                         imageURL:
                             state.books[index].volumeInfo.imageLinks.thumbnail,
