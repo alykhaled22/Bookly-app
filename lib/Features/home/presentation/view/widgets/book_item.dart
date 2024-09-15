@@ -52,15 +52,17 @@ class BookItem extends StatelessWidget {
                       bookModel.volumeInfo.authors![0],
                       style: Styles.textStyle14,
                     ),
-                    const SizedBox(
-                      height: 3,
+                    const Expanded(
+                      child: SizedBox(
+                        height: 8,
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
                           "Free",
-                          style: Styles.textStyle18,
+                          style: Styles.textStyle16,
                         ),
                         BookRating(
                           rate: ((1 + Random().nextDouble() * 4) * 10).round() /

@@ -28,6 +28,7 @@ class _BookDetailsViewState extends State<BookDetailsView> {
     return Scaffold(
       body: BookDetailsViewBody(
         bookModel: widget.bookModel,
+        category: widget.category,
       ),
     );
   }

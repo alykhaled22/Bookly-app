@@ -3,8 +3,8 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SimilarBooksSection extends StatelessWidget {
-  const SimilarBooksSection({super.key});
-
+  const SimilarBooksSection({super.key, required this.category});
+  final String category;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +22,9 @@ class SimilarBooksSection extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        const SimilarBooksListView(),
+        SimilarBooksListView(
+          category: category,
+        ),
       ],
     );
   }

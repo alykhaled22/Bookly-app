@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key, required this.bookModel});
+  const BookDetailsViewBody(
+      {super.key, required this.bookModel, required this.category});
   final BookModel bookModel;
+  final String category;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -36,7 +38,9 @@ class BookDetailsViewBody extends StatelessWidget {
                     height: 30,
                   ),
                 ),
-                const SimilarBooksSection(),
+                SimilarBooksSection(
+                  category: category,
+                ),
               ],
             ))
       ],
