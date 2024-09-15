@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/view/widgets/book_actions.dart';
 import 'package:bookly_app/Features/home/presentation/view/widgets/book_rating.dart';
@@ -52,7 +50,7 @@ class BooksDetailsSection extends StatelessWidget {
           height: 18,
         ),
         BookRating(
-          rate: ((1 + Random().nextDouble() * 4) * 10).round() / 10,
+          rate: 4.2,
           count: bookModel.volumeInfo.pageCount!,
           mainAxisAlignment: MainAxisAlignment.center,
         ),

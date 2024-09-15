@@ -12,12 +12,12 @@ class BookActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: CustomButton(
             backgrounColor: Colors.white,
             textColor: Colors.black,
             text: "Free",
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               topLeft: Radius.circular(12),
               bottomLeft: Radius.circular(12),
             ),

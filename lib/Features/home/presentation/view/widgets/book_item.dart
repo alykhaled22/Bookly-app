@@ -6,7 +6,6 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'dart:math';
 
 class BookItem extends StatelessWidget {
   const BookItem({super.key, required this.bookModel});
@@ -65,8 +64,7 @@ class BookItem extends StatelessWidget {
                           style: Styles.textStyle16,
                         ),
                         BookRating(
-                          rate: ((1 + Random().nextDouble() * 4) * 10).round() /
-                              10,
+                          rate: 4.2,
                           count: bookModel.volumeInfo.pageCount!,
                         ), //api does not provide rating
                       ],

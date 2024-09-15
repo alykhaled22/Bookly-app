@@ -35,7 +35,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) =>  SearchView(
+          allBooks: (state.extra as List)[0] as List<BookModel>,
+          newestBooks: (state.extra as List)[1] as List<BookModel>,
+        ),
       ),
     ],
   );

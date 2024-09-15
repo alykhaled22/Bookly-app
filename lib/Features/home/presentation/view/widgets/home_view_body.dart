@@ -1,10 +1,13 @@
+import 'package:bookly_app/Features/home/presentation/manager/all_books_cubit/all_books_cubit.dart';
+import 'package:bookly_app/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/view/widgets/newest_books_list_view.dart';
 import 'package:bookly_app/Features/home/presentation/view/widgets/books_list_view.dart';
-import 'package:bookly_app/Features/home/presentation/view/widgets/custom_app_bar.dart';
+import 'package:bookly_app/core/widgets/custom_app_bar.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -26,7 +29,10 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 actions: IconButton(
                     onPressed: () {
-                      GoRouter.of(context).push(AppRouter.kSearchView);
+                      GoRouter.of(context).push(AppRouter.kSearchView, extra: [
+                        BlocProvider.of<AllBooksCubit>(context).allBooks,
+                        BlocProvider.of<NewestBooksCubit>(context).newestBooks,
+                      ]);
                     },
                     icon: const Icon(
                       Icons.search,

@@ -9,17 +9,21 @@ class AllBooksCubit extends Cubit<AllBooksState> {
   AllBooksCubit(this.homeRepo) : super(AllBooksInitial());
 
   final HomeRepo homeRepo;
+  List<BookModel> allBooks = [];
 
   Future<void> fetchAllBooks() async {
     emit(AllBooksLoding());
 
     var result = await homeRepo.fetchAllBooks();
+
     result.fold(
-        (failure) => emit(
-              AllBooksFailure(errMsg: failure.errMsg),
-            ),
-        (books) => emit(
-              AllBooksSuccess(books: books),
-            ));
+      (failure) => emit(
+        AllBooksFailure(errMsg: failure.errMsg),
+      ),
+      (books) {
+        allBooks = books;
+        emit(AllBooksSuccess(books: books));
+      },
+    );
   }
 }
