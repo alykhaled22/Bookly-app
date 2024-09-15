@@ -1,7 +1,7 @@
 import 'package:bookly_app/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/view/widgets/book_item.dart';
+import 'package:bookly_app/Features/home/presentation/view/widgets/book_item_placeholder.dart';
 import 'package:bookly_app/core/widgets/custom_err_msg.dart';
-import 'package:bookly_app/core/widgets/custom_loding_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +15,6 @@ class NewestBooksListView extends StatelessWidget {
         if (state is NewestBooksSuccess) {
           return SliverList(
               delegate: SliverChildBuilderDelegate(
-            childCount: state.books.length,
             (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -24,11 +23,22 @@ class NewestBooksListView extends StatelessWidget {
                 ),
               );
             },
+            childCount: state.books.length,
           ));
         } else if (state is NewestBooksFailure) {
           return SliverToBoxAdapter(child: CustomErrMsg(errMsg: state.errMsg));
         } else {
-          return const SliverToBoxAdapter(child: CustomLodingIndicator());
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  child: BookItemPlaceholder(),
+                );
+              },
+              childCount: 5, // Number of placeholder items
+            ),
+          );
         }
       },
     );
