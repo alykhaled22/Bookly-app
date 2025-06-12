@@ -13,6 +13,24 @@
 
 ---
 
+## 🏗️ Architecture & State Management
+
+### State Management
+Bookly App uses a robust state management solution to ensure a responsive and maintainable codebase. The app leverages Cubit to manage and propagate state changes efficiently throughout the widget tree.
+
+### MVVM Pattern
+The project follows the **Model-View-ViewModel (MVVM)** architecture:
+- **Model:** Handles data structures and business logic.
+- **View:** UI components that display data and capture user input.
+- **ViewModel:** Connects the Model and View, managing state and logic for the UI.
+
+This separation of concerns makes the codebase scalable, testable, and easy to maintain.
+
+### REST API Integration
+Bookly App integrates with a RESTful API to fetch and display book data. The app uses [Dio](https://pub.dev/packages/dio) (or your preferred HTTP client) for network requests, handling API responses, errors, and data parsing. This allows real-time updates and a dynamic user experience.
+
+---
+
 ## ✨ Features
 
 - 📖 Browse and search for books
@@ -94,8 +112,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - Flutter & Dart teams for the amazing framework
 - Open source contributors
-- [Your inspiration or API sources, if any]
-
 ---
 
-> Made with ❤️ by [Your Name]
+> Made with ❤️ by Aly Khaled
